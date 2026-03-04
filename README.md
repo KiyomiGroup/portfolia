@@ -1,175 +1,99 @@
 <div align="center">
 
-# 🗂️ Portfolia
+# 🗂️ Portfolia — Static Edition
 
-### Portfolio Generator for Non-Tech Users
+### Portfolio Generator for Non-Tech Users · GitHub Pages Ready
 
-Build a beautiful, professional portfolio website in under 5 minutes — no coding required.
+Answer 7 simple questions → pick a template → download your portfolio HTML.  
+No server, no database, no build step. Pure HTML/CSS/JS.
 
-[![Node.js](https://img.shields.io/badge/Node.js-18+-green?style=flat-square&logo=node.js)](https://nodejs.org)
-[![Express](https://img.shields.io/badge/Express-4.x-black?style=flat-square&logo=express)](https://expressjs.com)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Ready-brightgreen?style=flat-square&logo=github)](https://pages.github.com)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
+
+**[▶ Live Demo →](https://YOUR_USERNAME.github.io/portfolia)**
 
 </div>
 
 ---
 
-## ✨ Features
+## ✨ How It Works
 
-- **Guided Multi-Step Form** — One friendly question per screen with progress tracking
-- **5 Professional Templates** — Minimal, Bold, Warm, Editorial, Glass
-- **Instant Portfolio Generation** — HTML portfolio created and served automatically
-- **Simple Dashboard** — View, edit, and regenerate your portfolio anytime
-- **Image Uploads** — Upload project images (up to 6 photos, 5MB each)
-- **Project Links** — Add links to external projects
-- **Mobile-First Design** — Looks great on all screen sizes
-- **Zero Dependencies on Paid APIs** — Fully self-contained
+1. Visit the site and click **"Create Your Portfolio"**
+2. Answer 7 friendly questions (name, profession, bio, services, projects, contact, template)
+3. Click **"Generate My Portfolio"**
+4. A complete `.html` file is built **entirely in your browser** and downloaded instantly
+5. Open the file locally — or deploy it to GitHub Pages for a free public URL
 
-## 🖥️ Tech Stack
+**No server. No signup. No data sent anywhere.**
 
-| Layer | Technology |
-|-------|-----------|
-| Frontend | HTML5, CSS3, Vanilla JavaScript |
-| Backend | Node.js + Express |
-| File Upload | Multer |
-| Data Storage | JSON file (no database needed) |
-| Fonts | Google Fonts (DM Serif Display, DM Sans) |
-| Styling | Custom CSS with CSS Variables |
+## 🚀 Deploy to GitHub Pages (Free Hosting)
+
+### Option A — Deploy this app (so others can use it)
+
+```bash
+# 1. Fork or clone this repo
+git clone https://github.com/YOUR_USERNAME/portfolia.git
+cd portfolia
+
+# 2. Push to GitHub
+git add .
+git commit -m "deploy portfolia"
+git push origin main
+
+# 3. Enable GitHub Pages
+# → Go to your repo on GitHub
+# → Settings → Pages
+# → Source: Deploy from a branch
+# → Branch: main / (root)
+# → Save
+
+# Your site will be live at:
+# https://YOUR_USERNAME.github.io/portfolia
+```
+
+### Option B — Deploy YOUR generated portfolio
+
+After generating your portfolio from the form:
+
+```bash
+# 1. Create a new GitHub repo called: YOUR_USERNAME.github.io
+# 2. Upload the downloaded .html file, renaming it to: index.html
+# 3. Enable GitHub Pages (Settings → Pages → main / root)
+# 4. Your portfolio is live at: https://YOUR_USERNAME.github.io
+```
 
 ## 📁 Project Structure
 
 ```
 portfolia/
-├── public/
-│   ├── css/
-│   │   ├── landing.css        # Landing page styles
-│   │   └── create.css         # Multi-step form styles
-│   ├── js/
-│   │   └── create.js          # Form logic & API calls
-│   ├── templates/
-│   │   ├── minimal.html       # Clean white template
-│   │   ├── bold.html          # Dark dramatic template
-│   │   ├── warm.html          # Friendly beige template
-│   │   ├── editorial.html     # Magazine-style template
-│   │   └── glass.html         # Glassmorphism template
-│   ├── portfolios/            # Generated portfolio files
-│   ├── uploads/               # User-uploaded images
-│   ├── index.html             # Landing page
-│   ├── create.html            # Multi-step form
-│   └── dashboard.html         # User dashboard
-├── data/
-│   └── users.json             # Simple JSON database
-├── server.js                  # Express server + portfolio generator
-├── package.json
+├── index.html          ← Landing page
+├── create.html         ← 7-step form + generator
+├── css/
+│   ├── landing.css     ← Landing page styles
+│   └── create.css      ← Form styles
+├── js/
+│   └── create.js       ← Client-side portfolio generator (all 5 templates)
 └── README.md
 ```
 
-## 🚀 Quick Start
+## 🎨 Templates Included
 
-### Prerequisites
+| Template | Style |
+|----------|-------|
+| **Minimal** | Clean white, DM Serif Display |
+| **Bold** | Dark/dramatic, Syne font |
+| **Warm** | Beige/friendly, Lora |
+| **Editorial** | Side nav, magazine layout |
+| **Glass** | Gradient bg, glassmorphism |
 
-- [Node.js](https://nodejs.org) v14 or higher
-- npm (comes with Node.js)
+## 🖼️ Image Support
 
-### Installation
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/YOUR_USERNAME/portfolia.git
-cd portfolia
-
-# 2. Install dependencies
-npm install
-
-# 3. Start the server
-npm start
-```
-
-Open your browser and go to: **http://localhost:3000**
-
-### Development Mode (with auto-restart)
-
-```bash
-npm run dev
-```
-
-## 📖 How to Use
-
-1. **Visit the landing page** at `http://localhost:3000`
-2. **Click "Create Your Portfolio"** to start the guided form
-3. **Answer 7 simple questions** — name, profession, bio, services, projects, contact, template
-4. **Click "Generate My Portfolio"** — your portfolio is instantly created
-5. **Access your dashboard** at `/dashboard/your-name` to edit or share
-
-### Generated Portfolio URL
-
-Each portfolio is available at:
-```
-http://localhost:3000/portfolio/your-name.html
-```
-
-### Sample Users (Pre-loaded)
-
-Two sample users are included for demo purposes:
-- `http://localhost:3000/dashboard/alex-chen`
-- `http://localhost:3000/dashboard/maya-johnson`
-
-## 🌐 Pushing to GitHub
-
-```bash
-# Initialize git (if not done)
-git init
-
-# Add all files
-git add .
-
-# First commit
-git commit -m "feat: initial Portfolia MVP"
-
-# Add your GitHub remote
-git remote add origin https://github.com/YOUR_USERNAME/portfolia.git
-
-# Push
-git push -u origin main
-```
-
-## 🎨 Templates
-
-| Template | Style | Best For |
-|----------|-------|---------|
-| **Minimal** | Clean white, serif headings | Designers, writers, consultants |
-| **Bold** | Dark background, high contrast | Developers, photographers, creatives |
-| **Warm** | Beige tones, friendly feel | Coaches, freelancers, personal brands |
-| **Editorial** | Side nav, magazine layout | Journalists, content creators |
-| **Glass** | Gradient bg, glassmorphism | Tech professionals, modern creatives |
-
-## 🔌 API Endpoints
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `GET` | `/` | Landing page |
-| `GET` | `/create` | Multi-step form |
-| `GET` | `/dashboard/:username` | User dashboard |
-| `GET` | `/portfolio/:filename` | Generated portfolio |
-| `GET` | `/api/user/:username` | Get user data (JSON) |
-| `POST` | `/api/generate` | Create new portfolio |
-| `PUT` | `/api/user/:username` | Update portfolio |
-
-## 🗺️ Roadmap
-
-- [ ] Custom domain support
-- [ ] PDF export
-- [ ] More templates
-- [ ] Analytics (view counts)
-- [ ] Password-protected portfolios
-- [ ] One-click deploy to Vercel/Netlify
+Images you upload are embedded as **base64 data URLs** directly into the generated HTML file — meaning the portfolio is fully self-contained and works offline, no hosting required for images.
 
 ## 📄 License
 
-MIT — see [LICENSE](LICENSE) for details.
+MIT — free to use, modify, and deploy.
 
 ---
 
-<div align="center">
-  Built with ❤️ by Portfolia
-</div>
+<div align="center">Built with ❤️ · No backend required</div>
