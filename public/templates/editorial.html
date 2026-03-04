@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{name}} — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#F2EFE9;--ink:#1C1C1C;--ink2:#777;--accent:#1C1C1C;--highlight:#D4C5A9;--sidebar-bg:#1C1C1C;--sidebar-ink:#F2EFE9;--border:rgba(28,28,28,0.1);--font-d:'Playfair Display',Georgia,serif;--font-b:'IBM Plex Sans',system-ui,sans-serif;}
+    body{font-family:var(--font-b);background:var(--bg);color:var(--ink);line-height:1.6;display:flex;min-height:100vh;}
+    a{color:inherit;text-decoration:none;}
+    /* Sidebar */
+    .sidebar{width:240px;flex-shrink:0;background:var(--sidebar-bg);color:var(--sidebar-ink);padding:2.5rem 1.75rem;display:flex;flex-direction:column;gap:2rem;position:sticky;top:0;height:100vh;overflow-y:auto;}
+    .sidebar-name{font-family:var(--font-d);font-size:1.375rem;line-height:1.2;letter-spacing:-0.02em;font-style:italic;}
+    .sidebar-profession{font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(242,239,233,0.5);margin-top:0.25rem;}
+    .sidebar-nav{display:flex;flex-direction:column;gap:0.25rem;margin-top:auto;}
+    .sidebar-nav a{font-size:0.8125rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:rgba(242,239,233,0.5);padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.06);transition:color 0.2s;}
+    .sidebar-nav a:hover{color:var(--sidebar-ink);}
+    .sidebar-copy{font-size:0.7rem;color:rgba(242,239,233,0.3);margin-top:2rem;}
+    /* Main */
+    .main{flex:1;overflow-y:auto;}
+    .hero{padding:6rem 5vw 5rem;border-bottom:1px solid var(--border);}
+    .hero-eyebrow{font-size:0.7rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink2);margin-bottom:1.5rem;}
+    .hero-name{font-family:var(--font-d);font-size:clamp(3rem,7vw,6.5rem);line-height:0.95;letter-spacing:-0.04em;margin-bottom:2rem;}
+    .hero-name em{display:block;font-style:italic;font-weight:400;}
+    .hero-bio{font-size:1.0625rem;color:var(--ink2);max-width:520px;line-height:1.8;}
+    .hero-cta{display:inline-block;margin-top:2.5rem;border:2px solid var(--ink);padding:0.75rem 1.75rem;font-size:0.875rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;transition:background 0.2s,color 0.2s;}
+    .hero-cta:hover{background:var(--ink);color:var(--bg);}
+    section{padding:5rem 5vw;border-bottom:1px solid var(--border);}
+    .section-label{font-size:0.65rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink2);margin-bottom:1.25rem;}
+    h2{font-family:var(--font-d);font-size:clamp(1.75rem,3.5vw,2.75rem);letter-spacing:-0.03em;line-height:1.1;margin-bottom:2rem;}
+    .services-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);}
+    .service-card{background:var(--bg);padding:1.5rem;display:flex;flex-direction:column;gap:0.5rem;}
+    .service-icon{font-size:1rem;color:var(--ink2);}
+    .service-card p{font-size:0.9375rem;font-weight:500;}
+    .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
+    .project-card{overflow:hidden;border:1px solid var(--border);transition:border-color 0.2s;}
+    .project-card:hover{border-color:var(--ink);}
+    .project-card img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;}
+    .project-info{padding:0.875rem 1rem;}
+    .project-info h4{font-family:var(--font-d);font-size:1rem;font-style:italic;}
+    .project-link-card a{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center;gap:0.75rem;min-height:160px;color:var(--ink2);}
+    .project-link-card a:hover{color:var(--ink);}
+    .link-icon{font-size:2rem;}
+    .project-link-card p{font-size:0.75rem;word-break:break-all;}
+    .about-text{font-size:1.0625rem;color:var(--ink2);max-width:580px;line-height:1.85;}
+    .contact-links{display:flex;flex-direction:column;gap:0;}
+    .social-link{display:flex;align-items:center;gap:1rem;font-size:1rem;font-weight:500;padding:1rem 0;border-bottom:1px solid var(--border);color:var(--ink2);transition:color 0.2s;}
+    .social-link:hover{color:var(--ink);}
+    footer{padding:2rem 5vw;font-size:0.75rem;color:var(--ink2);}
+    footer a{color:var(--ink);}
+    @media(max-width:768px){body{flex-direction:column;}.sidebar{width:100%;height:auto;position:relative;flex-direction:row;flex-wrap:wrap;align-items:center;}.sidebar-nav{flex-direction:row;margin-top:0;gap:0;}.projects-grid{grid-template-columns:1fr;}.services-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <div>
+      <div class="sidebar-name">{{name}}</div>
+      <div class="sidebar-profession">{{profession}}</div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="#about">About</a><a href="#services">Services</a>
+      <a href="#projects">Work</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="sidebar-copy">© {{year}} · Built with Portfolia</div>
+  </aside>
+  <main class="main">
+    <div class="hero">
+      <div class="hero-eyebrow">{{profession}} · Available for work</div>
+      <h1 class="hero-name"><em>{{name}}</em></h1>
+      <p class="hero-bio">{{bio}}</p>
+      <a href="#contact" class="hero-cta">Contact me →</a>
+    </div>
+    <section id="about"><div class="section-label">About</div><h2>Background.</h2><p class="about-text">{{bio}}</p></section>
+    <section id="services"><div class="section-label">Services</div><h2>Expertise.</h2><div class="services-grid">{{services}}</div></section>
+    <section id="projects"><div class="section-label">Selected Work</div><h2>Portfolio.</h2><div class="projects-grid">{{projects}}</div></section>
+    <section id="contact"><div class="section-label">Contact</div><h2>Reach out.</h2><div class="contact-links">{{contact}}</div></section>
+    <footer><p>{{name}} · © {{year}} · <a href="/">Built with Portfolia</a></p></footer>
+  </main>
+</body>
+</html>

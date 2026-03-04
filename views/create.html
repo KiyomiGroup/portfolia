@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Your Portfolio — Portfolia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/create.css" />
+</head>
+<body class="create-page">
+
+  <!-- Top Bar -->
+  <div class="create-topbar">
+    <a href="/" class="brand">
+      <span class="brand-icon">◈</span> Portfolia
+    </a>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progressFill"></div>
+      </div>
+      <span class="progress-label" id="progressLabel">Step 1 of 9</span>
+    </div>
+    <button class="btn btn-ghost btn-sm" id="saveDraftBtn">Save Draft</button>
+  </div>
+
+  <!-- Main Form Area -->
+  <main class="create-main">
+
+    <!-- Step 0: Welcome -->
+    <div class="form-step active" data-step="0">
+      <div class="step-icon">👋</div>
+      <h1 class="step-question">Welcome! Let's build your portfolio.</h1>
+      <p class="step-hint">We'll ask you a few simple questions. Answer at your own pace — you can always edit later. Takes about 5 minutes.</p>
+      <button class="btn btn-primary btn-xl next-btn">Let's Go →</button>
+    </div>
+
+    <!-- Step 1: Name -->
+    <div class="form-step" data-step="1">
+      <div class="step-icon">✍️</div>
+      <h2 class="step-question">What's your full name?</h2>
+      <p class="step-hint">This will be the headline of your portfolio.</p>
+      <input type="text" class="field-input" id="input-name" placeholder="e.g. Jane Doe" autocomplete="name" />
+      <div class="step-nav">
+        <button class="btn btn-ghost prev-btn">← Back</button>
+        <button class="btn btn-primary next-btn">Continue →</button>
+      </div>
+    </div>
+
+    <!-- Step 2: Profession -->
+    <div class="form-step" data-step="2">
+      <div class="step-icon">💼</div>
+      <h2 class="step-question">What do you do professionally?</h2>
+      <p class="step-hint">Your title or role — be specific but concise.</p>
+      <input type="text" class="field-input" id="input-profession" placeholder="e.g. UX Designer & Brand Strategist" />
+      <div class="step-chips">
+        <button class="chip">Graphic Designer</button>
+        <button class="chip">Software Engineer</button>
+        <button class="chip">Photographer</button>
+        <button class="chip">Marketing Consultant</button>
+        <button class="chip">Content Creator</button>
+        <button class="chip">Business Coach</button>
+        <button class="chip">Writer / Author</button>
+        <button class="chip">Illustrator</button>
+      </div>
+      <div class="step-nav">
+        <button class="btn btn-ghost prev-btn">← Back</button>
+        <button class="btn btn-primary next-btn">Continue →</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Bio -->
+    <div class="form-step" data-step="3">
+      <div class="step-icon">📝</div>
+      <h2 class="step-question">Tell us a little about yourself.</h2>
+      <p class="step-hint">2–4 sentences about who you are, what you do, and what makes you unique. Write it like you're talking to a new client.</p>
+      <textarea class="field-textarea" id="input-bio" placeholder="e.g. I'm a freelance UX designer with 6 years of experience helping startups and scale-ups create products people love. I specialise in user research, wireframing, and interaction design..." rows="5"></textarea>
+      <div class="char-count"><span id="bioCount">0</span> / 500 characters</div>
+      <div class="step-nav">
+        <button class="btn btn-ghost prev-btn">← Back</button>
+        <button class="btn btn-primary next-btn">Continue →</button>
+      </div>
+    </div>
+
+    <!-- Step 4: Services -->
+    <div class="form-step" data-step="4">
+      <div class="step-icon">🛠️</div>
+      <h2 class="step-question">What services do you offer?</h2>
+      <p class="step-hint">Add up to 6 services. Click "Add Service" to include each one.</p>
+      <div id="services-list" class="dynamic-list"></div>
+      <button class="btn btn-outline add-item-btn" id="addServiceBtn">+ Add a Service</button>
+      <div class="step-nav">
+        <button class="btn btn-ghost prev-btn">← Back</button>
+        <button class="btn btn-primary next-btn">Continue →</button>
+      </div>
+    </div>
+
+    <!-- Step 5: Projects -->
+    <div class="form-step" data-step="5">
+      <div class="step-icon">🗂️</div>
+      <h2 class="step-question">Share some of your work.</h2>
+      <p class="step-hint">Add up to 6 projects. Include a title, short description, and an optional link or image URL.</p>
+      <div id="projects-list" class="dynamic-list"></div>
+      <button class="btn btn-outline add-item-btn" id="addProjectBtn">+ Add a Project</button>
+      <div class="step-nav">
+        <button class="btn btn-ghost prev-btn">← Back</button>
+        <button class="btn btn-primary next-btn">Continue →</button>
+      </div>
+    </div>
+
+    <!-- Step 6: Contact Email -->
+    <div class="form-step" data-step="6">
+      <div class="step-icon">✉️</div>
+      <h2 class="step-question">What's your contact email?</h2>
+      <p class="step-hint">This will appear on your portfolio so clients can reach you.</p>
+      <input type="email" class="field-input" id="input-email" placeholder="you@example.com" autocomplete="email" />
+      <div class="step-nav">
+        <button class="btn btn-ghost prev-btn">← Back</button>
+        <button class="btn btn-primary next-btn">Continue →</button>
+      </div>
+    </div>
+
+    <!-- Step 7: Social Links -->
+    <div class="form-step" data-step="7">
+      <div class="step-icon">🔗</div>
+      <h2 class="step-question">Any social or professional links?</h2>
+      <p class="step-hint">Totally optional — add as many as you like.</p>
+      <div class="social-inputs">
+        <div class="social-row">
+          <span class="social-icon">in</span>
+          <input type="url" class="field-input" id="input-linkedin" placeholder="https://linkedin.com/in/yourname" />
+        </div>
+        <div class="social-row">
+          <span class="social-icon">gh</span>
+          <input type="url" class="field-input" id="input-github" placeholder="https://github.com/yourname" />
+        </div>
+        <div class="social-row">
+          <span class="social-icon">🌐</span>
+          <input type="url" class="field-input" id="input-website" placeholder="https://yoursite.com" />
+        </div>
+        <div class="social-row">
+          <span class="social-icon">📞</span>
+          <input type="tel" class="field-input" id="input-phone" placeholder="+1 555 000 0000" />
+        </div>
+      </div>
+      <div class="step-nav">
+        <button class="btn btn-ghost prev-btn">← Back</button>
+        <button class="btn btn-primary next-btn">Continue →</button>
+      </div>
+    </div>
+
+    <!-- Step 8: Template Selection -->
+    <div class="form-step" data-step="8">
+      <div class="step-icon">🎨</div>
+      <h2 class="step-question">Choose your portfolio style.</h2>
+      <p class="step-hint">Pick the template that feels most like you. You can change it anytime.</p>
+      <div class="template-grid">
+
+        <label class="template-option" data-template="template1">
+          <input type="radio" name="template" value="template1" checked />
+          <div class="tpl-preview tpl-prev-1">
+            <div class="tpl-p-header"><span>◈</span></div>
+            <div class="tpl-p-body">
+              <div class="tpl-p-line accent"></div>
+              <div class="tpl-p-line"></div>
+              <div class="tpl-p-line short"></div>
+            </div>
+          </div>
+          <div class="tpl-info">
+            <strong>Midnight Modern</strong>
+            <span>Dark &amp; Elegant</span>
+          </div>
+          <div class="tpl-check">✓</div>
+        </label>
+
+        <label class="template-option" data-template="template2">
+          <input type="radio" name="template" value="template2" />
+          <div class="tpl-preview tpl-prev-2">
+            <div class="tpl-p-header" style="background:#fff; border-bottom: 3px solid #e8533a;"><span style="color:#e8533a;">◈</span></div>
+            <div class="tpl-p-body" style="background:#fafaf8">
+              <div class="tpl-p-line accent" style="background:#e8533a;"></div>
+              <div class="tpl-p-line" style="background:rgba(0,0,0,0.07)"></div>
+              <div class="tpl-p-line short" style="background:rgba(0,0,0,0.07)"></div>
+            </div>
+          </div>
+          <div class="tpl-info">
+            <strong>Fresh Light</strong>
+            <span>Clean &amp; Editorial</span>
+          </div>
+          <div class="tpl-check">✓</div>
+        </label>
+
+        <label class="template-option" data-template="template3">
+          <input type="radio" name="template" value="template3" />
+          <div class="tpl-preview tpl-prev-3">
+            <div class="tpl-p-header" style="background:#0d0d20; border-bottom: 1px solid rgba(124,58,237,0.3);"><span style="color:#00f5c4;">◈</span></div>
+            <div class="tpl-p-body" style="background:#060610">
+              <div class="tpl-p-line accent" style="background:#00f5c4;"></div>
+              <div class="tpl-p-line" style="background:rgba(124,58,237,0.2)"></div>
+              <div class="tpl-p-line short" style="background:rgba(124,58,237,0.2)"></div>
+            </div>
+          </div>
+          <div class="tpl-info">
+            <strong>Neon Grid</strong>
+            <span>Tech &amp; Bold</span>
+          </div>
+          <div class="tpl-check">✓</div>
+        </label>
+
+        <label class="template-option" data-template="template4">
+          <input type="radio" name="template" value="template4" />
+          <div class="tpl-preview tpl-prev-4">
+            <div class="tpl-p-header" style="background:#f5e6d8;"><span style="color:#c46a3a;">◈</span></div>
+            <div class="tpl-p-body" style="background:#faf6f0">
+              <div class="tpl-p-line accent" style="background:#c46a3a; border-radius:8px;"></div>
+              <div class="tpl-p-line" style="background:rgba(196,106,58,0.1); border-radius:8px;"></div>
+              <div class="tpl-p-line short" style="background:rgba(196,106,58,0.1); border-radius:8px;"></div>
+            </div>
+          </div>
+          <div class="tpl-info">
+            <strong>Soft Studio</strong>
+            <span>Warm &amp; Playful</span>
+          </div>
+          <div class="tpl-check">✓</div>
+        </label>
+
+        <label class="template-option" data-template="template5">
+          <input type="radio" name="template" value="template5" />
+          <div class="tpl-preview tpl-prev-5">
+            <div class="tpl-p-header" style="background:#0c0c0c;"><span style="color:#f8f7f4;">◈</span></div>
+            <div class="tpl-p-body" style="background:#f8f7f4">
+              <div class="tpl-p-line accent" style="background:#d4361e;"></div>
+              <div class="tpl-p-line" style="background:rgba(0,0,0,0.08)"></div>
+              <div class="tpl-p-line short" style="background:rgba(0,0,0,0.08)"></div>
+            </div>
+          </div>
+          <div class="tpl-info">
+            <strong>Bold Serif</strong>
+            <span>Executive &amp; Editorial</span>
+          </div>
+          <div class="tpl-check">✓</div>
+        </label>
+
+      </div>
+      <div class="step-nav">
+        <button class="btn btn-ghost prev-btn">← Back</button>
+        <button class="btn btn-primary next-btn">Continue →</button>
+      </div>
+    </div>
+
+    <!-- Step 9: Generate -->
+    <div class="form-step" data-step="9">
+      <div class="step-icon">🚀</div>
+      <h2 class="step-question">You're all set!</h2>
+      <p class="step-hint">Review your information and generate your portfolio. You'll get a live link instantly.</p>
+      <div class="summary-card" id="summaryCard"></div>
+      <button class="btn btn-primary btn-xl" id="generateBtn">
+        <span class="btn-text">Generate My Portfolio →</span>
+        <span class="btn-loader" style="display:none">⟳ Generating...</span>
+      </button>
+      <div class="step-nav-back">
+        <button class="btn btn-ghost prev-btn">← Edit Answers</button>
+      </div>
+    </div>
+
+    <!-- Step 10: Success -->
+    <div class="form-step" data-step="10">
+      <div class="step-icon success-icon">🎉</div>
+      <h2 class="step-question">Your portfolio is live!</h2>
+      <p class="step-hint">Here's your portfolio link. Share it, add it to your CV, and make it yours.</p>
+      <div class="success-box">
+        <div class="portfolio-url-display">
+          <span id="portfolioUrlText"></span>
+          <button class="copy-btn" id="copyUrlBtn">Copy</button>
+        </div>
+        <div class="success-actions">
+          <a href="#" class="btn btn-primary" id="viewPortfolioBtn" target="_blank">View Portfolio →</a>
+          <a href="#" class="btn btn-outline" id="dashboardBtn">Go to Dashboard</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Step Dots (mobile) -->
+  <div class="step-dots" id="stepDots"></div>
+
+  <script src="/js/create.js"></script>
+</body>
+</html>
